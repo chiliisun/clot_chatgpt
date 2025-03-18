@@ -87,4 +87,4 @@ def generate_script(subject,video_length,creativity,api_key):
 """
 step9:调用generate_script()函数
 """
-#print(generate_script("sora模型",1,0.7,"sk-BNrnisPDBUHJEqWeeZaQB0QaoIoAefy1aDq0vkurGsbmPO2z"))
+#print(generate_script("sora模型",1,0.7,""))
