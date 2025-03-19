@@ -5,17 +5,20 @@ step1:导入streamlit,导入generate_script函数
 import streamlit as st
 from utils import generate_script
 
-st.title("Video Script Generator")
+st.title("🎬视频脚本生成器")
+
+with st.expander("功能说明"):
+    st.write("这是一个短视频脚本制作工具，输入视频主题等信息，AI会根据所输入的主题生成短视频标题及脚本内容")
 
 #通过.sidebar创建侧边栏，输入api秘钥
 with st.sidebar:
     openai_api_key=st.text_input("请输入OpenAI API秘钥：",type="password")
     # st.markdown("[获取OpenAI API密钥](https://platform.openai.com/account/api-keys)")
-
+    st.markdown("[获取OpenAI API密钥](https://platform.openai.com/account/api-keys)")
 #基本信息填写
-subject = st.text_input("请输入视频主题")
-video_length = st.number_input("请输入视频大致时长（单位：分钟）",min_value=0.1,step=0.1)
-creativity = st.slider("请输入视频的脚本创造力（数字小说明更严谨，数字大说明更多样）",min_value=0.0,max_value=1.0,value=0.2,step=0.1)
+subject = st.text_input("💡请输入视频主题")
+video_length = st.number_input("⏱️请输入视频大致时长（单位：分钟）",min_value=0.1,step=0.1)
+creativity = st.slider("✨请输入视频的脚本创造力（数字小说明更严谨，数字大说明更多样）",min_value=0.0,max_value=1.0,value=0.2,step=0.1)
 submit = st.button("生成脚本")
 
 #校验API秘钥，校验用户输入的主题、时长、创造力等相关信息
@@ -37,9 +40,9 @@ if submit:
 
 #返回结果
     st.success("视频脚本已生成")
-    st.subheader("标题：")
+    st.subheader("🔥标题：")
     st.write(title)
-    st.subheader("视频脚本：")
+    st.subheader("📝视频脚本：")
     st.write(script)
-    with st.expander("维基百科搜索结果"):
+    with st.expander("维基百科搜索结果👀"):
         st.info(search_result)
